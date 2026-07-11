@@ -18,7 +18,7 @@ this table is the registry.
 | ID | Folder | Run date | Post | The question it pokes at |
 |----|--------|----------|------|--------------------------|
 | Research 001 | [`the-experiment/`](the-experiment/) | 2026-06-27 | [*I tried to prove AI writes insecure WordPress code*](https://blog.lunetrax.com/i-tried-to-prove-ai-writes-insecure-wordpress-code) | Does the model slip on output escaping when asked the same plugin task again and again, in a harder output context, with a weaker model, or on a complex stateful form? (32/32 safe) |
-| Research 002 | lands with the next post | 2026-06-29 | in preparation | With the same neutral prompts, which security default cracks first across vendors? |
+| Research 002 | [`the-experiment/cross-vendor/`](the-experiment/cross-vendor/) | 2026-06-27/29; probe 2026-07-10 | [*So, can you stop checking AI's WordPress code?*](https://blog.lunetrax.com/so-can-you-stop-checking-ais-wordpress-code) | With the same neutral prompt, which security default cracks first across vendors? Injection held everywhere; the moderation default split (24/24 injection-safe; auto-publish 0/8 · 5/8 · 5/8) |
 
 More rows will be added as the series continues.
 

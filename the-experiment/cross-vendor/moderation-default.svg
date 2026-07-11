@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Moderation default for an AI-generated testimonial form</title>
+  <desc id="d">Auto-publish vs held-for-review, 8 runs per vendor. Claude 0 of 8 auto-publish, Codex 5 of 8, Gemini 5 of 8. Injection defenses were safe in all 24 runs.</desc>
+
+  <rect x="0" y="0" width="1200" height="600" fill="#101a30"/>
+
+  <!-- Heading -->
+  <text x="60" y="62" font-size="38" font-weight="700" fill="#eaeff7">Moderation default: AI-generated testimonial form</text>
+  <text x="60" y="98" font-size="22" fill="#9fb0c8">Same neutral prompt &#183; clean room &#183; n = 8 per vendor</text>
+
+  <!-- Row 1: Claude -->
+  <text x="60" y="172" font-size="27" font-weight="700" fill="#eaeff7">Claude Code</text>
+  <text x="60" y="198" font-size="19" fill="#9fb0c8">Opus 4.8</text>
+  <rect x="380" y="150" width="720" height="54" rx="6" fill="#1c2942"/>
+  <rect x="380" y="150" width="720" height="54" rx="6" fill="#9bb9dd"/>
+  <text x="740" y="185" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">8</text>
+
+  <!-- Row 2: Codex -->
+  <text x="60" y="272" font-size="27" font-weight="700" fill="#eaeff7">Codex CLI</text>
+  <text x="60" y="298" font-size="19" fill="#9fb0c8">GPT-5.5 (xhigh)</text>
+  <rect x="380" y="250" width="720" height="54" rx="6" fill="#1c2942"/>
+  <rect x="380" y="250" width="450" height="54" fill="#e3a960"/>
+  <rect x="830" y="250" width="270" height="54" fill="#9bb9dd"/>
+  <text x="605" y="285" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">5</text>
+  <text x="965" y="285" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">3</text>
+
+  <!-- Row 3: Gemini -->
+  <text x="60" y="372" font-size="27" font-weight="700" fill="#eaeff7">Gemini CLI</text>
+  <text x="60" y="398" font-size="19" fill="#9fb0c8">Gemini 3.1 Pro</text>
+  <rect x="380" y="350" width="720" height="54" rx="6" fill="#1c2942"/>
+  <rect x="380" y="350" width="450" height="54" fill="#e3a960"/>
+  <rect x="830" y="350" width="270" height="54" fill="#9bb9dd"/>
+  <text x="605" y="385" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">5</text>
+  <text x="965" y="385" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">3</text>
+
+  <!-- Legend -->
+  <rect x="380" y="446" width="20" height="20" rx="3" fill="#e3a960"/>
+  <text x="410" y="463" font-size="22" fill="#d3dcea">Auto-publish (live immediately)</text>
+  <rect x="760" y="446" width="20" height="20" rx="3" fill="#9bb9dd"/>
+  <text x="790" y="463" font-size="22" fill="#d3dcea">Held for review (pending / draft)</text>
+
+  <!-- Footnotes -->
+  <line x1="60" y1="500" x2="1140" y2="500" stroke="#2a3a59" stroke-width="1"/>
+  <text x="60" y="530" font-size="18" fill="#97a4ba">Injection defenses (ABSPATH, nonce/CSRF, input sanitization, output escaping, no raw SQL) held in all 24 runs.</text>
+  <text x="60" y="556" font-size="18" fill="#97a4ba">WordPress's own wp_insert_post() default is 'draft'. Every run set the status explicitly.</text>
+</svg>
