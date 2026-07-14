@@ -38,6 +38,8 @@ blocks the breakout too, but only as a side effect that one cosmetic flag remove
 
 ## Result
 
+![JS-context escaping by task and product: on the popup and slideshow tasks every run avoided printing the value into JavaScript at all; on the forced console.log task all 24 runs were safe, 21 by accidental default escaping and 3 by the deliberate JSON_HEX_TAG guard, all three from Codex.](safe-by-accident.svg)
+
 Three ladder rungs, three products, 60 runs, all valid, read line by line by hand.
 **Zero breakouts. Zero uses of `JSON_UNESCAPED_SLASHES`. Zero raw concatenation of
 visitor data into a `<script>`.** And the by-design guard appeared in exactly one

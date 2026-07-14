@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">JS-context escaping in AI-generated WordPress code: safe by accident or safe by design</title>
+  <desc id="d">Three tasks, three products, 60 runs, zero script breakouts. On the popup and slideshow tasks no product printed the value into JavaScript at all. On the forced console.log task all 24 runs were safe: 21 by accidental default escaping, 3 by the deliberate JSON_HEX_TAG guard, and those 3 all came from Codex.</desc>
+
+  <rect x="0" y="0" width="1200" height="840" fill="#101a30"/>
+
+  <!-- Heading -->
+  <text x="60" y="62" font-size="38" font-weight="700" fill="#eaeff7">JS context: safe by accident, or safe by design?</text>
+  <text x="60" y="98" font-size="22" fill="#9fb0c8">Three tasks &#183; three products &#183; 60 runs &#183; zero &lt;/script&gt; breakouts</text>
+
+  <!-- Zone 1: tasks (a) and (b) — the JS surface never appears -->
+  <text x="60" y="172" font-size="24" font-weight="700" fill="#eaeff7">Task (a) &#183; popup</text>
+  <text x="60" y="198" font-size="19" fill="#9fb0c8">visitor name, n = 12</text>
+  <rect x="380" y="150" width="720" height="54" rx="6" fill="#1c2942"/>
+  <text x="740" y="184" font-size="21" fill="#9fb0c8" text-anchor="middle">12 / 12 &#183; kept client-side &#183; no PHP&#8594;JS surface</text>
+
+  <text x="60" y="272" font-size="24" font-weight="700" fill="#eaeff7">Task (b) &#183; slideshow</text>
+  <text x="60" y="298" font-size="19" fill="#9fb0c8">messages + links, n = 24</text>
+  <rect x="380" y="250" width="720" height="54" rx="6" fill="#1c2942"/>
+  <text x="740" y="284" font-size="21" fill="#9fb0c8" text-anchor="middle">24 / 24 &#183; server-rendered HTML &#183; no PHP&#8594;JS surface</text>
+
+  <!-- Zone 2: task (c) forces the JS context -->
+  <text x="60" y="368" font-size="25" font-weight="700" fill="#eaeff7">Task (c) forces the value into a &lt;script&gt;. All 24 runs safe. How:</text>
+
+  <!-- Claude row: 8 accident -->
+  <text x="60" y="412" font-size="27" font-weight="700" fill="#eaeff7">Claude Code</text>
+  <text x="60" y="438" font-size="19" fill="#9fb0c8">Opus 4.8</text>
+  <g fill="#e3a960">
+    <rect x="380" y="390" width="86" height="54" rx="4"/><rect x="470" y="390" width="86" height="54" rx="4"/><rect x="560" y="390" width="86" height="54" rx="4"/><rect x="650" y="390" width="86" height="54" rx="4"/><rect x="740" y="390" width="86" height="54" rx="4"/><rect x="830" y="390" width="86" height="54" rx="4"/><rect x="920" y="390" width="86" height="54" rx="4"/><rect x="1010" y="390" width="90" height="54" rx="4"/>
+  </g>
+  <text x="693" y="425" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">8</text>
+  <text x="380" y="470" font-size="17" fill="#97a4ba">7 &#215; wp_json_encode (default) &#183; 1 &#215; esc_js</text>
+
+  <!-- Codex row: 5 accident + 3 design -->
+  <text x="60" y="522" font-size="27" font-weight="700" fill="#eaeff7">Codex CLI</text>
+  <text x="60" y="548" font-size="19" fill="#9fb0c8">GPT-5.5 (xhigh)</text>
+  <g fill="#e3a960">
+    <rect x="380" y="500" width="86" height="54" rx="4"/><rect x="470" y="500" width="86" height="54" rx="4"/><rect x="560" y="500" width="86" height="54" rx="4"/><rect x="650" y="500" width="86" height="54" rx="4"/><rect x="740" y="500" width="86" height="54" rx="4"/>
+  </g>
+  <g fill="#9bb9dd">
+    <rect x="830" y="500" width="86" height="54" rx="4"/><rect x="920" y="500" width="86" height="54" rx="4"/><rect x="1010" y="500" width="90" height="54" rx="4"/>
+  </g>
+  <text x="603" y="535" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">5</text>
+  <text x="965" y="535" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">3</text>
+  <text x="380" y="580" font-size="17" fill="#97a4ba">5 &#215; wp_json_encode (default) &#183; 3 &#215; wp_json_encode + JSON_HEX_TAG</text>
+
+  <!-- Gemini row: 8 accident -->
+  <text x="60" y="632" font-size="27" font-weight="700" fill="#eaeff7">Gemini CLI</text>
+  <text x="60" y="658" font-size="19" fill="#9fb0c8">Gemini 3.1 Pro</text>
+  <g fill="#e3a960">
+    <rect x="380" y="610" width="86" height="54" rx="4"/><rect x="470" y="610" width="86" height="54" rx="4"/><rect x="560" y="610" width="86" height="54" rx="4"/><rect x="650" y="610" width="86" height="54" rx="4"/><rect x="740" y="610" width="86" height="54" rx="4"/><rect x="830" y="610" width="86" height="54" rx="4"/><rect x="920" y="610" width="86" height="54" rx="4"/><rect x="1010" y="610" width="90" height="54" rx="4"/>
+  </g>
+  <text x="693" y="645" font-size="26" font-weight="700" fill="#14203a" text-anchor="middle">8</text>
+  <text x="380" y="690" font-size="17" fill="#97a4ba">6 &#215; esc_js &#183; 2 &#215; wp_json_encode (default)</text>
+
+  <!-- Legend -->
+  <line x1="60" y1="716" x2="1140" y2="716" stroke="#2a3a59" stroke-width="1"/>
+  <rect x="60" y="736" width="20" height="20" rx="3" fill="#e3a960"/>
+  <text x="90" y="753" font-size="20" fill="#d3dcea">Safe by accident &#183; default escaping, one readability flag from breaking</text>
+  <rect x="60" y="766" width="20" height="20" rx="3" fill="#9bb9dd"/>
+  <text x="90" y="783" font-size="20" fill="#d3dcea">Safe by design &#183; JSON_HEX_TAG, the guard WordPress Core itself uses</text>
+
+  <!-- Footnote -->
+  <text x="60" y="818" font-size="18" fill="#97a4ba">Zero raw concatenation &#183; zero JSON_UNESCAPED_SLASHES &#183; counts, not rankings &#183; full transcripts and scoring in this repo</text>
+</svg>
