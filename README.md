@@ -32,16 +32,23 @@ More rows will be added as the series continues.
 ## Re-running it yourself
 
 Every prompt is a plain feature request. It never mentions security, escaping,
-sanitizing, or XSS. Any defense in the output is the model's own default. The
-harness is Claude Code in headless mode:
+sanitizing, or XSS, so any defense in the output is the model's own default. Every
+run happens in a fresh, empty directory with the user's own customization stripped,
+so nothing security-related is primed into it. That clean-room principle is the same
+across every study; only the exact command differs per product, and each study's
+README lists the one it used.
+
+The first study used Claude Code in headless mode:
 
 ```
 claude -p "<the prompt>" --model <model-id> --setting-sources '' --disable-slash-commands
 ```
 
-run from a fresh, empty directory. The two flags strip every user skill and
-enabled plugin from the model's context, so nothing security-related is primed
-into the run. The per-experiment README lists the exact models and prompts.
+The two flags strip every user skill and enabled plugin from the model's context.
+Later studies bring in other vendors' coding assistants, each run the same way in
+spirit, a fresh clean room with no user customization, using that product's own
+equivalent flags. See each study's README for the exact command, models, flags, and
+prompts it used.
 
 ## License
 
