@@ -1,6 +1,6 @@
 # Cross-vendor: does the moderation default hold across assistants?
 
-Companion to the main experiment ([../README.md](../README.md)). The main run
+Companion to the main experiment ([../research-001-injection/README.md](../research-001-injection/README.md)). The main run
 scored **injection defenses** (escaping, sanitization, CSRF, SQL) on one vendor
 (Claude) and found them universal: 32/32 safe. It explicitly carved out one
 non-injection control as a separate study: the **moderation default**, that is,

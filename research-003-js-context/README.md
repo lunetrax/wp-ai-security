@@ -1,7 +1,7 @@
 # JS context: safe by accident, or safe by design?
 
-Companion to the main experiment ([../README.md](../README.md)) and the cross-vendor
-study ([../cross-vendor/README.md](../cross-vendor/README.md)). Those two scored
+Companion to the main experiment ([../research-001-injection/README.md](../research-001-injection/README.md)) and the cross-vendor
+study ([../research-002-moderation/README.md](../research-002-moderation/README.md)). Those two scored
 injection defenses and the moderation default. This study asks a narrower question
 about one output context:
 
@@ -81,7 +81,7 @@ escaper, and was carried by the input-side sanitizer.
 | Gemini CLI | 0 / 8 | CPT 6/8, custom table 2/8 | 0 / 8 |
 
 The last two columns are a side observation, but they replicate [Research
-002](../cross-vendor/README.md): the moderation default splits by vendor again, and
+002](../research-002-moderation/README.md): the moderation default splits by vendor again, and
 tracks the storage architecture (none of the custom-table/options schemas has any
 moderation concept at all). Claude held every anonymous submission; Gemini published
 every one.

@@ -156,4 +156,4 @@ by grepping for `esc_*`.
 - `code/gpt-5.5/` — GPT-5.5 via Codex, 3 plugins (01 simple, 02 href, 03 form).
 - `code/gemini-3.1-pro/` — Gemini 3.1 Pro, 3 plugins (saved verbatim from the operator's runs).
 - `code/claude/` — the two moderation reference points: Opus form (`pending`) and Haiku form (`publish`).
-- Full Claude 32-run set: public repo `github.com/lunetrax/wp-ai-security` (`the-experiment/runs/`).
+- Full Claude 32-run set: public repo `github.com/lunetrax/wp-ai-security` (`research-001-injection/runs/`).
