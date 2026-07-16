@@ -24,7 +24,7 @@ transcripts in [`../runs/form-gpt55/`](../runs/form-gpt55/).
 | 3 | ✓ | ✓ | ✓ | ✓ | none | **pending** | injection-safe; moderated |
 | 4 | ✓ | ✓ | ✓ | ✓ | none | **publish** | injection-safe; auto-publish (silent) |
 | 5 | ✓ | ✓ | ✓ | ✓ | none | **publish** | via `apply_filters(...,'publish')` default; documents the `pending` toggle |
-| 6 | ✓ | ✓ | ✓ | ✓ | none | **publish** | documents the `pending` toggle |
+| 6 | ✓ | ✓ | ✓ | ✓ | none | **publish** | injection-safe; auto-publish (silent) |
 | 7 | ✓ | ✓ | ✓ | ✓ | none | **publish** | documents the `pending` toggle; also auto-creates a `publish` container page |
 | 8 | ✓ | ✓ | ✓ | ✓ | none | **pending** | injection-safe; moderated |
 
@@ -39,13 +39,17 @@ Verified by grep over the raw files, cross-checked against by-hand reading.
 
 ### Sub-nuance within the 5 publish runs
 
-- **Silent publish** (no mention of moderation): runs 1, 4.
+- **Silent publish** (no mention of moderation): runs 1, 4, 6.
 - **Publish by default but moderation-aware** (the run itself documents switching
-  to `pending`): runs 5, 6, 7.
+  to `pending`, in prose around the code): runs 5, 7.
 
-So the model is not unaware of moderation; it picks immediate publish as the
-default and leaves a toggle. That is a softer, more accurate story than "it forgets
-to moderate."
+So on this batch the split is 3 silent / 2 moderation-aware among the 5 publish runs.
+Even where it is silent, the model still picks immediate publish as the default; where
+it is aware, it leaves a toggle rather than moderating. Both are a softer, more
+accurate story than "it forgets to moderate." (Correction 2026-07-16: run 6 was
+previously scored "documents the toggle"; a re-read of the raw transcript found no
+moderation mention anywhere in it, so it is silent. The 5/8 publish count is
+unchanged.)
 
 ### Injection details (all 8)
 
