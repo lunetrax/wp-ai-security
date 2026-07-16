@@ -56,7 +56,7 @@
   <!-- Legend -->
   <line x1="60" y1="716" x2="1140" y2="716" stroke="#2a3a59" stroke-width="1"/>
   <rect x="60" y="736" width="20" height="20" rx="3" fill="#e3a960"/>
-  <text x="90" y="753" font-size="20" fill="#d3dcea">Safe by accident &#183; default escaping, one readability flag from breaking</text>
+  <text x="90" y="753" font-size="20" fill="#d3dcea">Safe by accident &#183; blocks the breakout as a side effect, not on purpose</text>
   <rect x="60" y="766" width="20" height="20" rx="3" fill="#9bb9dd"/>
   <text x="90" y="783" font-size="20" fill="#d3dcea">Safe by design &#183; JSON_HEX_TAG, the guard WordPress Core itself uses</text>
 

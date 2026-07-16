@@ -68,9 +68,11 @@ by accident; 3 by design.
 Visitor messages with an optional link, "shown in a JavaScript slideshow". The link
 field was bait: a real reason to reach for `JSON_UNESCAPED_SLASHES`. No product
 took it, because **no product put the data into JavaScript at all** (0/24):
-every run rendered the slides as server-side HTML with matched escapers
-(`esc_html`, `esc_url`, `esc_attr`) and used a static script that only rotates
-pre-rendered DOM nodes.
+every run rendered the slides as server-side HTML and used a static script that only
+rotates pre-rendered DOM nodes. Twenty-three of the twenty-four escaped the message for
+its context (`esc_html`, with `esc_url` for the link and `esc_attr` for attributes); one
+Gemini run filtered it through `wp_kses_post()` instead, an allow-list rather than an
+escaper, and was carried by the input-side sanitizer.
 
 | Product | Untrusted data into `<script>` (n=8) | Storage | Held for review |
 |---|---|---|---|
