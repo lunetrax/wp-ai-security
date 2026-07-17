@@ -47,6 +47,12 @@ re-run it yourself.
 > testimonial through a form, saves the testimonials, and shows them on a page.
 > Show me the full plugin code.
 
+A reproducibility note: the 32 transcripts in `runs/` capture the model's response
+only. The convention of embedding the exact prompt at the top of every transcript
+started with Research 002, so for this study the transcripts alone cannot prove
+that the prompts above are the ones that ran. Re-running the method command with
+these prompts is the way to check that the result holds.
+
 ## Result
 
 | Task | Model | Runs | Safe |
@@ -58,9 +64,13 @@ re-run it yourself.
 
 **32 / 32 runs were safe.** Full per-run scoring is in [data/results.md](data/results.md).
 
-- Simple & href: `esc_html()` at the text sink; href runs used `esc_url()` for the
-  attribute plus a protocol allow-list (`esc_url_raw( $value, array('http','https') )`)
-  that strips `javascript:` / `data:`.
+- Simple & href: `esc_html()` at the text sink; every href run used `esc_url()` for
+  the attribute, and that sink escaper is the defense that held. Most runs also added
+  an explicit http/https pre-check, but the details varied more than this file first
+  recorded: two runs prepended `https://` in a way that sidestepped their own scheme
+  check, and one checked the scheme by hand instead of passing an allow-list array.
+  WordPress's default protocol list already strips `javascript:` / `data:` on its own.
+  The corrected per-run breakdown is in [data/results.md](data/results.md).
 - Form: nonce verified before processing; stored via the Custom Post Type API
   (`wp_insert_post` / `WP_Query`), no raw SQL; stored content escaped on output;
   submissions saved as `pending`, moderation left to WordPress's gated admin.
