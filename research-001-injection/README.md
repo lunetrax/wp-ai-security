@@ -53,6 +53,15 @@ started with Research 002, so for this study the transcripts alone cannot prove
 that the prompts above are the ones that ran. Re-running the method command with
 these prompts is the way to check that the result holds.
 
+**Re-run, 2026-07-22:** the form row was re-run under the embedded-prompt
+convention (n=8, `claude-opus-4-8`, CLI `2.1.216`, prediction committed before
+the first run in [`prediction-form-rerun.md`](prediction-form-rerun.md)):
+[8/8 injection-safe, 8/8 `pending`](data/results-form-rerun.md) — the form row
+reproduces under provable prompts. The re-run is a separate reproduction cell;
+the 32/32 tally below stays frozen to the 2026-06-27 runs. The other three rows
+remain response-only as described above. Transcripts:
+[`runs/form-opus-rerun/`](runs/form-opus-rerun/).
+
 ## Result
 
 | Task | Model | Runs | Safe |
